@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { api } from "../lib/axios";
 
 interface Course {
     id: number
@@ -17,18 +18,31 @@ export interface PlayerState {
     course: Course | null
     currentModuleIndex: number
     currentLessonIndex: number
-    isloading: boolean
+    isLoading: boolean
 
     play: (moduleAndLessonIndex: [number, number]) => void
     next: () => void
- }
+    load: () => Promise<void>
+}
 
 export const useStore = create<PlayerState>((set, get) => {
     return {
         course: null,
         currentModuleIndex: 0,
         currentLessonIndex: 0,
-        isloading: true,
+        isLoading: true,
+
+
+        load: async () => {
+            set({ isLoading: true })
+
+            const response = await api.get('/courses/1')
+
+            set({
+                course: response.data,
+                isLoading: false,
+            })
+        },
 
         play: (moduleAndLessonIndex: [number, number]) => {
             const [moduleIndex, lessonIndex] = moduleAndLessonIndex
@@ -47,7 +61,7 @@ export const useStore = create<PlayerState>((set, get) => {
             const nextLesson = course?.modules[currentModuleIndex].lessons[nextLessonIndex]
 
             if (nextLesson) {
-                set({currentLessonIndex: nextLessonIndex})
+                set({ currentLessonIndex: nextLessonIndex })
             } else {
                 const nextModuleIndex = currentModuleIndex + 1
                 const nextModule = course?.modules[nextModuleIndex]
@@ -62,4 +76,15 @@ export const useStore = create<PlayerState>((set, get) => {
         },
     }
 })
+
+export const useCurrentLesson = () => {
+    return useStore(state => {
+      const { currentModuleIndex, currentLessonIndex } = state
+  
+      const currentModule = state.course?.modules[currentModuleIndex]
+      const currentLesson = currentModule?.lessons[currentLessonIndex]
+  
+      return { currentModule, currentLesson }
+    })
+  }
 
