@@ -24,17 +24,34 @@
 # Redux Zustand
 
 ## ✒️ Descrição
-(Em breve)
+Nesta Aplicação desenvolvida na aula de React da _Trilha Ignite_ da Rocketseat, utilizando conceitos e ferramentas importantes do ecossistema React como Styled Components, MirageJS, Context API, hooks, Axios. O objetivo dessa aplicação e ser uma alternativa simples e eficaz para gerenciar finanças, permitindo o cadastro de entradas e saídas de valores organizando melhor as contas.
+
+
+foi desenvolvido um Player de video utilizando todo o escopo do Redux e posteriomente migrado para Zustand, objetivando simplificar a aplicação. 
+
+Esse projeto é um aprendizado de gerenciamento de estados usando Redux e posteriormente Zustand substituindo o redux para um uso mais simples de gerenciamento de estado.
+
+Nele começei implementando o gerenciamento de estado para um Player de vídeo que conforme o módulo e aula selecionada o player e toda interface muda conforme o estado modificado. Logo precisei gerenciar esse estado de uma forma mais global e o Redux foi a escolha para isso.
+
+Após a implementação usando Redux reservei um tempo para utilização do Zustand que não exige as mesmas coisas que o Redux. Assim, a implementação, ficou mais simples, mais fácil de testar e mais fácil de usar nos componentes React.
 
 ## 🚀 Tecnologias utilizadas
 <div style="display: inline_block"><br>
-  (Em breve)
+  <img align="center" alt="img-html" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+  
+  <img align="center" alt="img-javascript" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg">
+	
+  <img align="center" alt="img-react" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+  
+  <img align="center" alt="img-typescript" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">
+  
+  <img align="center" alt="img-tailwindcss" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/55609aa5bd817ff167afce0d965585c92040787a/icons/tailwindcss/tailwindcss-plain.svg"> 
 </div>
 
 ## 📷 Demostração
-<!-- <div align="center">
-  <img src="./.github/redux-zustand.gif" alt="Ignite Feed" border="0">
-</div> -->
+<div align="center">
+  <img src="./.github/redux-zustand.gif" alt="Reduz" border="0">
+</div>
 
 ## 🔥 Instalação
 Clone o repositório.
@@ -48,6 +65,10 @@ cd redux-zustand/
 Instale as dependências.
 ~~~
 npm install
+~~~
+Execute o servidor.
+~~~
+npm run server
 ~~~
 Execute a aplicação.
 ~~~
